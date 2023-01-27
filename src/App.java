@@ -65,7 +65,23 @@ public class App{
     Scanner sc = new Scanner(System.in);
     Player player1;
     System.out.println("What would you like to be in this crazy new world?\n1. Doctor (Smart and weak, interesting combo)\n2. Raider (otherwise know as a jerk)\n3. Soldier (feeling brave?)\n4. Janitor (Heart of gold and fists of steel)");
-    int selection = sc.nextInt();
+    int selection = 0;
+    while (selection > 4 || selection <1)
+    {
+      try{
+        selection = sc.nextInt();
+      }
+      catch (Exception e) {
+        sc.nextLine();
+        System.out.println("Please enter an integer for character selection!");
+      }
+      if (selection > 4 || selection <1)
+      {
+        System.out.println("Please select a number between 1 and 4!");
+      }
+    }
+    
+
     switch(selection) {
       case 1: player1 = new Doctor();
         player1.setStats();
